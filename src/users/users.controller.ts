@@ -12,6 +12,11 @@ export class UsersController {
      return await this.userService.create(body)
    }
 
+   @Post('/login')
+   async findUser(@Body() body: CreateUserDto) {
+     return await this.userService.login(body)
+   }
+
    @Get(':id')
    async findOnde(@Param('id', ParseIntPipe) id:number) {
     return await this.userService.get(id)

@@ -13,6 +13,12 @@ export class UsersRepository {
    });
   }
 
+  findUserByEmail(email: string) {
+    return this.prisma.user.findFirst({
+      where: { email }
+    })
+  }
+
   getById(id:number){
     return this.prisma.user.findFirst({
       where: { id }
